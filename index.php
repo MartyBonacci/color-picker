@@ -10,15 +10,15 @@
 		<div class="picker-form-container">
 			<div class="picker-control">
 				<label for="red">red</label>
-				<input type="range" id="red">
+				<input type="range" id="red" class="picker">
 			</div>
 			<div class="picker-control">
 				<label for="green">green</label>
-				<input type="range" id="green">
+				<input type="range" id="green" class="picker">
 			</div>
 			<div class="picker-control">
 				<label for="blue">blue</label>
-				<input type="range" id="blue">
+				<input type="range" id="blue" class="picker">
 			</div>
 		</div>
 		<div class="color-box-container">
