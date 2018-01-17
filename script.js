@@ -10,34 +10,33 @@ function initColorPicker() {
 		blue: document.getElementById("blue")
 	};
 	let colorPickers = document.getElementsByClassName("picker");
-	setColorPickerEventListeners(colorBox,rgb, colorPickers);
+	setColorPickerEventListeners(colorBox, rgb, colorPickers);
 }
 
 function setColorPickerEventListeners(colorBox, rgb, pickerElements) {
-
-	for(let i = 0; i < pickerElements.length; i++) {
+	let pickerLen = pickerElements.length;
+	for(let i = 0; i < pickerLen; i++) {
 		pickerElements[i].addEventListener('change', () => {
-			setBoxRGBColor(colorBox, rgb.red.value, rgb.blue.value, rgb.green.value);
+			let red = rgb.red.value;
+			let green = rgb.blue.value;
+			let blue = rgb.green.value;
+			setBoxRGBColor(colorBox, red, green, blue);
 		});
 	}
+}
 
+function setBoxRGBColor(colorBox, red, blue, green) {
+	rgbVal = [red, blue, green].join(',');
+	colorBox.style.backgroundColor = "rgb(" + rgbVal + ")";
+	setDisplayValues(red, green, blue);
+}
 
-// 	rgb.red.addEventListener('change', () => {
-// 		console.log("red value: ", rgb.red.value);
-// 		setBoxRGBColor(colorBox, rgb.red.value, rgb.blue.value, rgb.green.value);
-// 	});
-// 	rgb.green.addEventListener('change', () => {
-// 		console.log("red value: ", rgb.green.value);
-// 		setBoxRGBColor(colorBox, rgb.red.value, rgb.blue.value, rgb.green.value);
-// 	});
-// 	rgb.blue.addEventListener('change', () => {
-// 		console.log("red value: ", rgb.blue.value);
-// 		setBoxRGBColor(colorBox, rgb.red.value, rgb.blue.value, rgb.green.value);
-// 	});
-// }
+function setDisplayValues(red, green, blue) {
+	let redVal = document.getElementById(redVal);
+	let greenVal = document.getElementById(greenVal);
+	let blueVal = document.getElementById(blueVal);
+	redVal.innerText = red;
+	greenVal.innerText = green;
+	blueVal.innerText = blue;
 
-	function setBoxRGBColor(colorBox, red, blue, green) {
-		rgbVal = [red, blue, green].join(',');
-		colorBox.style.backgroundColor = "rgb(" + rgbVal + ")";
-	}
 }
